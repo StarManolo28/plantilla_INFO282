@@ -16,4 +16,7 @@ router.delete("/:id", deletePaper);
 router.get("/", getPapers);
 router.get("/:id", getPaper);
 
+// Metodos, se definen los endpoints, cómo voy a pedir la información
+
+
 export default router;

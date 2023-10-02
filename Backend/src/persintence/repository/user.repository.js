@@ -8,8 +8,6 @@ export async function getUsers_(){
           atributes: ["id", "rut", "name", "mail"],
         });
 
-
-
         return users
       } catch (error) {
         
@@ -18,17 +16,24 @@ export async function getUsers_(){
       }
 }
 
+{/* Se instala bcrypt con npm install bcrypt */}
+//const bcrypt = require('bcrypt');
+
 export async function createUser_(user){
-    const { name, rut, mail } = user;
-    try{ 
+    const { name, rut, mail, password } = user;
+    try{
+
+        //const hashedPassword = await bcrypt.hash(password, 10);
+
         let newUser = await User.create(
             {
             name,
             rut,
             mail,
+            password,
             },
             {
-            fields: ["name", "rut", "mail"],
+            fields: ["name", "rut", "mail", "password"],
             }
         );
       return newUser
@@ -54,12 +59,13 @@ export async function getUser_(id){
 }
 
 export async function updateUser_(user){
-    const {id, name, rut, mail} = user 
+    const {id, name, rut, mail, password} = user 
     try {
         const user = await User.findByPk(id);
         user.name = name;
         user.rut = rut;
         user.mail = mail;
+        user.password = password;
         await user.save();
         return "Usuario Modificado"
     } catch (error) {

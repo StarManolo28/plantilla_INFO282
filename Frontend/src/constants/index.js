@@ -10,6 +10,10 @@ export const navLinks = [
       ref: "/usuarios"
     },
     {
+      title: "Barco",
+      ref: "/barco"
+    },
+    {
       title: "Papers",
       ref: "/papers"
     },

@@ -64,3 +64,4 @@ export async function getPaper(req, res) {
     res.status(400).json({status : false, error : error.message })
   })
 }
+// Llega la información y reenvia a createpaper

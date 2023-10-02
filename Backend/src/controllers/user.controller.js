@@ -3,7 +3,6 @@ import { Paper } from "../persintence/models/Paper.js";
 
 import { getUsers_, createUser_, getUser_, updateUser_, deleteUser_, getUserPapers_} from "../persintence/repository/user.repository.js";
 
-
 export function getUsers(req, res) {
   getUsers_().then(data => {
     res.status(200).json({status : true, data : data})
@@ -13,11 +12,12 @@ export function getUsers(req, res) {
 }
 
 export  function createUser(req, res) {
-  const { name, rut, mail } = req.body;
+  const { name, rut, mail, password } = req.body;
   const user ={
     name, 
     rut,
-    mail
+    mail,
+    password
   }
   createUser_(user).then(data => {
     res.status(200).json({status : true, data : data})
@@ -40,12 +40,13 @@ export async function getUser(req, res) {
 export const updateUser = async (req, res) => {
 
   const { id } = req.params;
-  const { name, rut, mail } = req.body;
+  const { name, rut, mail, password } = req.body;
   const user ={
     id, 
     name, 
     rut,
-    mail
+    mail,
+    password
   }
   updateUser_(user).then(msg => {
     res.status(200).json({status : true, msg : msg })

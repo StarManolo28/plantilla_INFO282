@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Home, User, Paper } from "./components"
+import { Navbar, Home, User, Paper, Barco } from "./components"
 import { BrowserRouter as Router, Routes , Route } from "react-router-dom";
 
 const App = () => {
@@ -12,9 +12,9 @@ const App = () => {
       </div>
       <Router>
         <Routes>
-         
           <Route path="/usuarios" element={<User />} />
-            <Route path="/papers" element={<Paper />} />
+           <Route path="/papers" element={<Paper />} />
+           <Route path="/barco" element={<Barco />} />
         </Routes>
       </Router>
       <div className="bg-primary flex justify-center items-start xl:max-w-[1280px] w-full">
